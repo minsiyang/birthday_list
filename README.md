@@ -1,17 +1,4 @@
-### Quick Start
-
-Fork this repository to your github account and clone it to your machine. Then install the dependencies:
-```bash
-> git clone https://github.com/makersacademy/birthdays.git
-> cd birthdays
-> bundle
-```
-
-### Instructions
-
-- Test-drive an implementation of the requirements
-- Make sure your code is [linted](https://github.com/rubocop-hq/rubocop)
-- [Open a PR](https://services.github.com/on-demand/github-cli/open-pull-request-github) when you've finished
+# Birthday List
 
 ### Requirements
 
@@ -24,11 +11,9 @@ More requirements:
 - Test-drive extracting a birthday class
 - Isolate your birthday list class using a mock for Birthday
 
-### TDD resources
-
-- https://github.com/makersacademy/course/blob/master/pills/tdd.md
-- https://github.com/makersacademy/course/blob/master/pills/tdd_quality_discussion.md
-
-### Mocking
-
-- https://relishapp.com/rspec/rspec-mocks/docs/basics/test-doubles
+**Class**  
+BirthdayList
+**Method** 
+.store(birthday)
+.view_birthdays
+.check_birthday
