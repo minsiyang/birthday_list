@@ -1,4 +1,5 @@
 require 'birthday_list'
+require 'timecop'
 
 RSpec.describe BirthdayList do
   describe '#store_birthday' do
@@ -15,5 +16,16 @@ RSpec.describe BirthdayList do
       expect{ list.view_birthday }.to output("Annie Hall's birthday is 19/08/2020\nJack Lee's birthday is 29/07/1988\n")
       .to_stdout
     end 
+  end
+
+  describe "#check_birthday" do
+    it "output a string to the name of the lucky person, and their age" do
+      Timecop.freeze("19/08/2020") do
+        list = BirthdayList.new
+        list.store_birthday("Annie Hall", "19/08/2019")
+        list.store_birthday("Jack Lee", "29/07/1988")
+        expect { list.check_birthday }.to output("It's Annie Hall's birthday today! She is 1 years old!").to_stdout
+      end
+    end
   end
 end

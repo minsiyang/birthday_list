@@ -13,4 +13,7 @@ class BirthdayList
       puts "#{name}'s birthday is #{birthday}"
     end
   end
+
+  def check_birthday
+  end
 end
