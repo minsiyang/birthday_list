@@ -17,7 +17,8 @@ class BirthdayList
 
   def check_birthday
     @list.each do |name, birthday|
-      puts "It's #{name}'s birthday today! They are #{age(birthday)} year(s) old!" if today?(birthday)
+      puts "It's #{name}'s birthday today! They are #{age(birthday)} "\
+      "year(s) old!" if today?(birthday)
     end
   end
 

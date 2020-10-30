@@ -13,7 +13,7 @@ RSpec.describe BirthdayList do
       list = BirthdayList.new
       list.store_birthday("Annie Hall", "19/08/2020")
       list.store_birthday("Jack Lee", "29/07/1988")
-      expect{ list.view_birthday }.to output("Annie Hall's birthday is 19/08/2020\nJack Lee's birthday is 29/07/1988\n")
+      expect { list.view_birthday }.to output("Annie Hall's birthday is 19/08/2020\nJack Lee's birthday is 29/07/1988\n")
       .to_stdout
     end 
   end
@@ -26,6 +26,13 @@ RSpec.describe BirthdayList do
         list.store_birthday("Jack Lee", "29/07/1988")
         expect { list.check_birthday }.to output("It's Annie Hall's birthday today! They are 1 year(s) old!\n").to_stdout
       end
+    end
+
+    it "would not output anything if no birthday match the current day" do
+      list = BirthdayList.new
+      list.store_birthday("Annie Hall", "19/08/2019")
+      list.store_birthday("Jack Lee", "29/07/1988")
+      expect { list.check_birthday }.to output("").to_stdout
     end
   end
 end
