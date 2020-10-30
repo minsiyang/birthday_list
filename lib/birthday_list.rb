@@ -16,13 +16,27 @@ class BirthdayList
   end
 
   def check_birthday
-    today = Time.now
-    year = today.year
     @list.each do |name, birthday|
-      if Time.parse(birthday).strftime("%d/%m") == today.strftime("%d/%m")
-        age = year - Time.parse(birthday).year
-        puts "It's #{name}'s birthday today! They are #{age} year(s) old!"
-      end
+      puts "It's #{name}'s birthday today! They are #{age(birthday)} year(s) old!" if today?(birthday)
     end
   end
+
+  private
+
+  def today
+    Time.now
+  end
+
+  def today?(birthday)
+    birthday(birthday).strftime("%d/%m") == today.strftime("%d/%m")
+  end
+
+  def age(birthday)
+    today.year - birthday(birthday).year
+  end
+
+  def birthday(birthday)
+    Time.parse(birthday)
+  end
+
 end
