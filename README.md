@@ -11,12 +11,10 @@ More requirements:
 - Test-drive extracting a birthday class
 - Isolate your birthday list class using a mock for Birthday
 
-**Class** 
-
+**Class**   
 BirthdayList
 
-**Method** 
-
-.store_birthday(name, birthday)
-.view_birthdays
+**Method**  
+.store_birthday(name, birthday)  
+.view_birthdays  
 .check_birthday
