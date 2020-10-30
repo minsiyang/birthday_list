@@ -24,7 +24,7 @@ RSpec.describe BirthdayList do
         list = BirthdayList.new
         list.store_birthday("Annie Hall", "19/08/2019")
         list.store_birthday("Jack Lee", "29/07/1988")
-        expect { list.check_birthday }.to output("It's Annie Hall's birthday today! She is 1 years old!").to_stdout
+        expect { list.check_birthday }.to output("It's Annie Hall's birthday today! They are 1 year(s) old!\n").to_stdout
       end
     end
   end

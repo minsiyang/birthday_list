@@ -14,6 +14,6 @@ More requirements:
 **Class**  
 BirthdayList
 **Method** 
-.store_birthday(birthday)
+.store_birthday(name, birthday)
 .view_birthdays
 .check_birthday
