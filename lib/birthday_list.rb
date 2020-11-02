@@ -1,4 +1,6 @@
 require_relative './birthday'
+require 'time'
+
 class BirthdayList
 
   def initialize(birthday)
@@ -11,15 +13,15 @@ class BirthdayList
   end
 
   def view_birthday
-    @list.each do |person|
-      puts "#{person[:name]}'s birthday is #{person[:birthday]}"  
+    @list.each do |bday|
+      puts "#{bday.name}'s birthday is #{bday.birthday}"  
     end
   end
 
   def check_birthday
-    @list.each do |person|
-      puts "It's #{person[:name]}'s birthday today! They are #{age(person[:birthday])} "\
-      "year(s) old!" if today?(person[:birthday])
+    @list.each do |bday|
+      puts "It's #{bday.name}'s birthday today! He/She is #{age(bday.birthday)} "\
+      "year(s) old!" if today?(bday.birthday)
     end
   end
 

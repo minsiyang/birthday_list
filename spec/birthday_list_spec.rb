@@ -6,19 +6,25 @@ RSpec.describe BirthdayList do
     it "stores the provided birthday into an array" do
       bd = class_double("Birthday")
       list = BirthdayList.new(bd)
-      expect(bd).to receive(:new).with("Annie Hall", "19/08/2020")
-      list.store_birthday("Annie Hall", "19/08/2020")
+      expect(bd).to receive(:new).with("Annie Hall", "19/08/2019")
+      list.store_birthday("Annie Hall", "19/08/2019")
       # expect(subject.store_birthday("Annie Hall", "19/08/2020")).to eq([{ name: "Annie Hall", birthday: "19/08/2020"}])
     end
   end
  
   describe "#view_birthday" do
-    xit "output the stored birthdays one at each line" do
-      list = BirthdayList.new
-      list.store_birthday("Annie Hall", "19/08/2020")
+    it "output the stored birthdays one at each line" do
+      bd = class_double("Birthday")
+      list = BirthdayList.new(bd)
+      expect(bd).to receive(:new).with("Annie Hall", "19/08/2019")
+      list.store_birthday("Annie Hall", "19/08/2019")
+      expect(bd).to receive(:new).with("Jack Lee", "29/07/1988")
       list.store_birthday("Jack Lee", "29/07/1988")
-      expect { list.view_birthday }.to output("Annie Hall's birthday is 19/08/2020\nJack Lee's birthday is 29/07/1988\n")
-      .to_stdout
+      # allow(bd).to receive(:name)
+      # allow(bd).to receive(:birthday)
+      list.view_birthday
+      # expect { list.view_birthday }.to output("Annie Hall's birthday is 19/08/2019\nJack Lee's birthday is 29/07/1988\n")
+      # .to_stdout
     end 
   end
 
