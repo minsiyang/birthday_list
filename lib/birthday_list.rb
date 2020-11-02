@@ -1,11 +1,13 @@
+require_relative './birthday'
 class BirthdayList
 
-  def initialize
+  def initialize(birthday)
     @list = []
+    @birthday = birthday
   end
 
   def store_birthday(name, birthday)
-    @list << { name: name, birthday: birthday}
+    @list << @birthday.new(name, birthday)
   end
 
   def view_birthday
