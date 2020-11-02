@@ -1,24 +1,23 @@
 class BirthdayList
 
   def initialize
-    @list = {}
+    @list = []
   end
 
   def store_birthday(name, birthday)
-    @list[name] = birthday
-    "Birthday has been stored!"
+    @list << { name: name, birthday: birthday}
   end
 
   def view_birthday
-    @list.each do |name, birthday|
-      puts "#{name}'s birthday is #{birthday}"  
+    @list.each do |person|
+      puts "#{person[:name]}'s birthday is #{person[:birthday]}"  
     end
   end
 
   def check_birthday
-    @list.each do |name, birthday|
-      puts "It's #{name}'s birthday today! They are #{age(birthday)} "\
-      "year(s) old!" if today?(birthday)
+    @list.each do |person|
+      puts "It's #{person[:name]}'s birthday today! They are #{age(person[:birthday])} "\
+      "year(s) old!" if today?(person[:birthday])
     end
   end
 

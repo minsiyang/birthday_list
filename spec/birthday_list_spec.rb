@@ -3,8 +3,8 @@ require 'timecop'
 
 RSpec.describe BirthdayList do
   describe '#store_birthday' do
-    it "stores the provided birthday, and return a confirm message" do
-      expect(subject.store_birthday("Annie Hall", "19/08/2020")).to eq("Birthday has been stored!")
+    it "stores the provided birthday into an array" do
+      expect(subject.store_birthday("Annie Hall", "19/08/2020")).to eq([{ name: "Annie Hall", birthday: "19/08/2020"}])
     end
   end
 
