@@ -1,24 +1,27 @@
+require_relative './birthday'
+require 'time'
+
 class BirthdayList
 
-  def initialize
-    @list = {}
+  def initialize(birthday)
+    @list = []
+    @birthday = birthday
   end
 
   def store_birthday(name, birthday)
-    @list[name] = birthday
-    "Birthday has been stored!"
+    @list << @birthday.new(name, birthday)
   end
 
   def view_birthday
-    @list.each do |name, birthday|
-      puts "#{name}'s birthday is #{birthday}"  
+    @list.each do |bday|
+      puts "#{bday.name}'s birthday is #{bday.birthday}"  
     end
   end
 
   def check_birthday
-    @list.each do |name, birthday|
-      puts "It's #{name}'s birthday today! They are #{age(birthday)} "\
-      "year(s) old!" if today?(birthday)
+    @list.each do |bday|
+      puts "It's #{bday.name}'s birthday today! He/She is #{age(bday.birthday)} "\
+      "year(s) old!" if today?(bday.birthday)
     end
   end
 
