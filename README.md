@@ -13,8 +13,14 @@ More requirements:
 
 **Class**   
 BirthdayList
+------------
+Birthday
 
 **Method**  
 .store_birthday(name, birthday)  
 .view_birthdays  
 .check_birthday
+---------------
+.birthday(day)
+.today?(day)
+.age(day)
