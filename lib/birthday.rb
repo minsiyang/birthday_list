@@ -1,12 +1,9 @@
 require 'time'
 
 class Birthday
-  def initialize(date)
-    @date = date
-  end
   
-  def birthday
-    Time.parse(@date)
+  def birthday(date)
+    Time.parse(date)
   end
 
   def today?

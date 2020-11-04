@@ -3,8 +3,8 @@ require 'timecop'
 
 RSpec.describe Birthday do
   it 'knows it is date' do
-    bday = Birthday.new("19/08/2020")
-    result = bday.birthday
+    bday = Birthday.new
+    result = bday.birthday("19/08/2020")
     actual = Time.parse("19/08/2020")
     expect(result).to eq(actual)
   end
