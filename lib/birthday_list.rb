@@ -3,8 +3,9 @@ require_relative './birthday'
 
 class BirthdayList
 
-  def initialize
+  def initialize(bday)
     @list = {}
+    @bday = bday
   end
 
   def store_birthday(name, birthday)
