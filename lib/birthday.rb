@@ -6,8 +6,8 @@ class Birthday
     Time.parse(date)
   end
 
-  def today?
-    birthday.strftime("%d/%m") == today.strftime("%d/%m")
+  def today?(date)
+    birthday(date).strftime("%d/%m") == today.strftime("%d/%m")
   end
 
   def age
