@@ -6,7 +6,8 @@ RSpec.describe BirthdayList do
     it "stores the provided birthday into an array" do
       bday = double("Birthday")
       list = BirthdayList.new(bday)
-      expect(list.store_birthday("Annie Hall", "19/08/2020")).to eq("19/08/2020")
+      list.store_birthday("Annie Hall", "19/08/2020")
+      expect(list.list).to eq({"Annie Hall" => "19/08/2020"})
     end
   end
  

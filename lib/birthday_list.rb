@@ -2,6 +2,7 @@ require 'time'
 require_relative './birthday'
 
 class BirthdayList
+  attr :list
 
   def initialize(bday)
     @list = {}
