@@ -12,8 +12,9 @@ RSpec.describe BirthdayList do
   end
  
   describe "#view_birthday" do
-    xit "output the stored birthdays one at each line" do
-      list = BirthdayList.new
+    it "output the stored birthdays one at each line" do
+      bday = double("Birthday")
+      list = BirthdayList.new(bday)
       list.store_birthday("Annie Hall", "19/08/2019")
       list.store_birthday("Jack Lee", "29/07/1988")
       expect{ list.view_birthday }.to output("Annie Hall's birthday is 19/08/2019\nJack Lee's birthday is 29/07/1988\n")
