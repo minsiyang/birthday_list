@@ -24,8 +24,9 @@ RSpec.describe Birthday do
   end
 
   it 'can return the age' do
-    bday = Birthday.new("19/08/2019")
-    result = bday.age
+    bday = Birthday.new
+    bday.birthday("19/08/2019")
+    result = bday.age("19/08/2019")
     expect(result).to eq 1
   end
 end

@@ -10,8 +10,8 @@ class Birthday
     birthday(date).strftime("%d/%m") == today.strftime("%d/%m")
   end
 
-  def age
-    today.year - birthday.year
+  def age(date)
+    today.year - birthday(date).year
   end
 
   private
