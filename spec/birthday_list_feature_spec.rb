@@ -7,10 +7,6 @@ describe "BirthdayList Feature" do
     list.store_birthday("Jack Lee", "29/07/1988")
   end
 
-  it "can store name and according birthday into a list" do
-    expect(list.list).to eq({"Annie Hall" => "19/08/2019", "Jack Lee" => "29/07/1988"})
-  end
-
   it "can print out a nice message with name and according birthday" do
     expect { list.view_birthday }.to output(
       "Annie Hall's birthday is 19/08/2019\nJack Lee's birthday is 29/07/1988\n").to_stdout

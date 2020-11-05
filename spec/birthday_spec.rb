@@ -4,12 +4,6 @@ require 'timecop'
 RSpec.describe Birthday do
   let(:bday) { Birthday.new }
 
-  it 'knows it is date' do
-    result = bday.birthday("19/08/2020")
-    actual = Time.parse("19/08/2020")
-    expect(result).to eq(actual)
-  end
-
   it 'will return false if today is not the birthday' do
     bday.birthday("19/08/2020")
     expect(bday.today?("19/08/2020")).to eq false

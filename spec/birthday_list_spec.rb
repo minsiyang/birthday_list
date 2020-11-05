@@ -11,16 +11,10 @@ RSpec.describe BirthdayList do
     list.store_birthday("Jack Lee", "29/07/1988")
   end
 
-  describe '#store_birthday' do
-    it "stores the provided birthday into an array" do
-      expect(list.list).to eq({"Annie Hall" => "19/08/2019", "Jack Lee" => "29/07/1988"})
-    end
-  end
- 
   describe "#view_birthday" do
     it "output the stored birthdays one at each line" do
-      allow(printer).to receive(:print_birthday).with("Annie Hall", "19/08/2019")
-      allow(printer).to receive(:print_birthday).with("Jack Lee", "29/07/1988")
+      expect(printer).to receive(:print_birthday).with("Annie Hall", "19/08/2019")
+      expect(printer).to receive(:print_birthday).with("Jack Lee", "29/07/1988")
       list.view_birthday
     end 
   end
@@ -28,20 +22,17 @@ RSpec.describe BirthdayList do
   describe "#check_birthday" do
     it "output a string to the name of the lucky person, and their age" do
       Timecop.freeze("19/08/2020") do
-        allow(bday).to receive(:today?).with("19/08/2019")
-        allow(bday).to receive(:today?).with("29/07/1988")
-        allow(bday).to receive(:age).with("19/08/2019")
-        allow(bday).to receive(:age).with("29/07/1988")
-        allow(printer).to receive(:print_age).with("Annie Hall", 1)
+        expect(bday).to receive(:today?).with("19/08/2019").and_return(true)
+        expect(bday).to receive(:today?).with("29/07/1988").and_return(false)
+        expect(bday).to receive(:age).with("19/08/2019").and_return(1)
+        expect(printer).to receive(:print_age).with("Annie Hall", 1)
         list.check_birthday
       end
     end
 
     it "would not output anything if no birthday match the current day" do
-      allow(bday).to receive(:today?).with("19/08/2019")
-      allow(bday).to receive(:today?).with("29/07/1988")
-      allow(bday).to receive(:age).with("19/08/2019")
-      allow(bday).to receive(:age).with("29/07/1988")
+      expect(bday).to receive(:today?).with("19/08/2019").and_return(false)
+      expect(bday).to receive(:today?).with("29/07/1988").and_return(false)
       list.check_birthday
     end
   end
