@@ -32,6 +32,7 @@ RSpec.describe BirthdayList do
         allow(bday).to receive(:today?).with("29/07/1988")
         allow(bday).to receive(:age).with("19/08/2019")
         allow(bday).to receive(:age).with("29/07/1988")
+        allow(printer).to receive(:print_age).with("Annie Hall", 1)
         list.check_birthday
       end
     end

@@ -23,7 +23,7 @@ class BirthdayList
 
   def check_birthday
     @list.each do |name, birthday|
-      puts "It's #{name}'s birthday today! They are #{@bday.age(birthday)} year(s) old!" if @bday.today?(birthday)
+      @printer.print_age(name, @bday.age(birthday)) if @bday.today?(birthday)
     end
   end
 end
