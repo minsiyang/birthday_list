@@ -2,8 +2,9 @@ require 'birthday_list'
 require 'timecop'
 
 RSpec.describe BirthdayList do
-  let(:bday) { instance_double("Birthday")}
-  let(:list) { BirthdayList.new(bday)}
+  let(:bday) { instance_double("Birthday") }
+  let(:printer) { instance_double("Printer") }
+  let(:list) { BirthdayList.new(bday, printer) }
 
   describe '#store_birthday' do
     it "stores the provided birthday into an array" do
@@ -16,8 +17,9 @@ RSpec.describe BirthdayList do
     it "output the stored birthdays one at each line" do
       list.store_birthday("Annie Hall", "19/08/2019")
       list.store_birthday("Jack Lee", "29/07/1988")
-      expect{ list.view_birthday }.to output("Annie Hall's birthday is 19/08/2019\nJack Lee's birthday is 29/07/1988\n")
-      .to_stdout
+      allow(printer).to receive(:print_birthday).with("Annie Hall", "19/08/2019")
+      allow(printer).to receive(:print_birthday).with("Jack Lee", "29/07/1988")
+      list.view_birthday
     end 
   end
 
