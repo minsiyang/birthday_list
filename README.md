@@ -11,16 +11,16 @@ More requirements:
 - Test-drive extracting a birthday class
 - Isolate your birthday list class using a mock for Birthday
 
-**Class**   
-BirthdayList
-------------
-Birthday
+|    **Class**       |  **Method**   |  
+|     :--            |  :--          |  
+|  BirthdayList      |  .store_birthday(name, birthday) |
+|                    |   .view_birthdays                |
+|                    |   .check_birthday                |
+|  Birthday          |   .birthday(birthday)            |
+|                    |    .today?(birthday)             |
+|                    |   .age(birthday)                 |
+| Printer            |   .print_birthday(name, birthday)|
+|                    |   .print_age(name, age)          |
+  
 
-**Method**  
-.store_birthday(name, birthday)  
-.view_birthdays  
-.check_birthday
----------------
-.birthday(day)
-.today?(day)
-.age(day)
+
