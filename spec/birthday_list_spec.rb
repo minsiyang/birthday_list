@@ -3,7 +3,10 @@ require 'timecop'
 
 RSpec.describe BirthdayList do
   let(:printer) { instance_double("Printer") }
-  let(:list) { BirthdayList.new(printer) }
+  let(:bday) { class_double("Birthday") }
+  let(:list) { BirthdayList.new(printer, bday) }
+
+  
 
   # before(:each) do
   #   list.store_birthday("Annie Hall", "19/08/2019")
@@ -12,8 +15,13 @@ RSpec.describe BirthdayList do
 
   describe "#view_birthday" do
     it "output the stored birthdays one at each line" do
-      list.store_birthday(Birthday.new("Annie Hall", "19/08/2019"))
-      list.store_birthday(Birthday.new("Jack Lee", "29/07/1988"))
+      expect(bday).to receive(:new).with("Annie Hall", "19/08/2019")
+      list.store_birthday("Annie Hall", "19/08/2019")
+      expect(bday).to receive(:new).with("Jack Lee", "29/07/1988")
+      list.store_birthday("Jack Lee", "29/07/1988")
+      p list.list
+      expect(list.list[0]).to receive(:name).and_return("Annie Hall")
+      expect(list.list[0]).to receive(:date).and_return("19/08/2019")
       expect(printer).to receive(:print_birthday).with("Annie Hall", "19/08/2019")
       expect(printer).to receive(:print_birthday).with("Jack Lee", "29/07/1988")
       list.view_birthday
