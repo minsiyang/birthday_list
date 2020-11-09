@@ -3,9 +3,9 @@ require 'time'
 class Birthday
   attr_reader :name, :date
 
-  def initialize(name, date)
+  def create(name, birthday)
     @name = name
-    @date = date
+    @date = birthday
   end
   
   def age
