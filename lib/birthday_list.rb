@@ -3,21 +3,19 @@ require_relative './birthday'
 require_relative './printer'
 
 class BirthdayList
-  attr :list
 
-  def initialize(bday = Birthday.new, printer = Printer.new)
-    @list = {}
-    @bday = bday
+  def initialize(printer = Printer.new)
+    @list = []
     @printer = printer
   end
 
-  def store_birthday(name, birthday)
-    @list[name] = birthday
+  def store_birthday(birthday)
+    @list << birthday
   end
 
   def view_birthday
-    @list.each do |name, birthday|
-      @printer.print_birthday(name, birthday) 
+    @list.each do |birthday|
+      @printer.print_birthday(birthday.name, birthday.date) 
     end
   end
 
