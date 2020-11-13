@@ -31,6 +31,10 @@ class BirthdayList
   private
 
   def today?(date)
-    Time.parse(date).strftime("%d/%m") == Time.now.strftime("%d/%m")
+    bdate(date) == Time.now.strftime("%d/%m")
+  end
+
+  def bdate(date)
+    Time.parse(date).strftime("%d/%m")
   end
 end
