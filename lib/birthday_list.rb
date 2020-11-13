@@ -4,16 +4,16 @@ require_relative './printer'
 
 class BirthdayList
 
-  attr_reader :bday, :list
+  attr_reader :birthday, :list
 
-  def initialize(printer = Printer.new, bday = Birthday.new)
+  def initialize(printer = Printer.new, birthday = Birthday)
     @list = []
     @printer = printer
-    @bday = bday
+    @birthday = birthday
   end
 
   def store_birthday(name, date)
-    @list << bday.create(name, date)
+    @list << birthday.new(name, date)
   end
 
   def view_birthday
