@@ -23,8 +23,14 @@ class BirthdayList
   end
 
   def check_birthday
-    @list.each do |name, birthday|
-      @printer.print_age(name, @bday.age(birthday)) if @bday.today?(birthday)
+    @list.each do |birthday|
+      @printer.print_age(birthday.name, birthday.age) if today?(birthday.date)
     end
+  end
+
+  private
+
+  def today?(date)
+    Time.parse(date).strftime("%d/%m") == Time.now.strftime("%d/%m")
   end
 end
