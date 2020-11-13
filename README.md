@@ -11,6 +11,6 @@ More requirements:
 - Test-drive extracting a birthday class
 - Isolate your birthday list class using a mock for Birthday
 
- ![Planning Table] (/image/planning_table.png)
+![Planning Table](/image/planning_table.png)
 
 
