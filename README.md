@@ -11,16 +11,6 @@ More requirements:
 - Test-drive extracting a birthday class
 - Isolate your birthday list class using a mock for Birthday
 
-|    **Class**       |  **Method**   |  
-|     :--            |  :--          |  
-|  BirthdayList      |  .store_birthday(name, birthday) |
-|                    |   .view_birthdays                |
-|                    |   .check_birthday                |
-|  Birthday          |   .birthday(birthday)            |
-|                    |    .today?(birthday)             |
-|                    |   .age(birthday)                 |
-| Printer            |   .print_birthday(name, birthday)|
-|                    |   .print_age(name, age)          |
-  
+ ![Planning Table] (/image/planning_table.png)
 
 
